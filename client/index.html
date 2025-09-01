@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Secure ATM Simulation</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="atm-container">
+        <div class="screen-area">
+            <div class="loading-spinner" id="loading-spinner"></div>
+
+            <div id="welcome-screen" class="screen active">
+                <h1>Welcome to Secure Bank <span class="tts-icon">🔊</span></h1>
+                <p>Advanced ATM Security</p>
+                <input type="text" id="user-name-input" placeholder="Enter Your Name" autocomplete="off">
+                <button id="existing-user-btn">Insert Card (Login)</button>
+                <button id="new-user-btn">Set Up New Card & PIN</button>
+            </div>
+            
+            <div id="setup-screen" class="screen">
+                <div class="setup-header">
+                    <h2>New Card Setup (Step 1 of 2)</h2>
+                    <p id="setup-instructions">Select 4 positions on the grid to set your secret pattern.</p>
+                </div>
+                <div class="auth-layout">
+                    <div id="setup-grid-container" class="grid-container"></div>
+                </div>
+                <div class="setup-footer">
+                    <button id="confirm-pattern-btn" disabled>Next Step</button>
+                    <button id="cancel-setup-btn">Cancel</button>
+                </div>
+            </div>
+            
+            <div id="duress-setup-screen" class="screen">
+                <h2>New Card Setup (Step 2 of 2)</h2>
+                <p>Set a 4-digit <strong>Duress PIN</strong>.</p>
+                <input type="text" inputmode="numeric" pattern="[0-9]*" id="duress-pin-input" maxlength="4" placeholder="Enter 4-digit Duress PIN" autocomplete="off">
+                <button id="confirm-duress-btn" disabled>Complete Setup</button>
+            </div>
+            
+            <div id="setup-verification-screen" class="screen">
+                <div>
+                    <h2>Setup Successful!</h2>
+                    <p>Please verify and remember your new credentials.</p>
+                </div>
+                <div class="verify-section" id="verify-pattern">
+                    <h4>Your Secret Pattern:</h4>
+                    <div id="verification-grid-container" class="grid-container"></div>
+                </div>
+                <div class="verify-section" id="verify-duress">
+                    <h4>Your Duress PIN:</h4>
+                    <p id="verification-duress-pin"></p>
+                </div>
+                <div>
+                    <button id="verification-ok-btn">OK & Proceed to Login</button>
+                </div>
+            </div>
+
+
+            <div id="auth-screen" class="screen">
+                <div class="auth-header">
+                    <h2>Dynamic PIN Authentication <span class="tts-icon">🔊</span></h2>
+                    <div id="pin-display"></div>
+                </div>
+                <div class="auth-layout">
+                    <div id="auth-grid-container" class="grid-container"></div>
+                    <div id="keypad"></div>
+                </div>
+                <button id="cancel-auth-btn">Cancel Transaction</button>
+            </div>
+
+            <div id="menu-screen" class="screen">
+                <h2>Main Menu <span class="tts-icon">🔊</span></h2>
+                <p id="welcome-user-name"></p>
+                <button class="menu-btn" id="balance-btn">Check Balance</button>
+                <button class="menu-btn" id="withdraw-btn">Withdraw Cash</button>
+                <button class="menu-btn" id="deposit-btn">Deposit Cash</button>
+                <button class="menu-btn" id="ai-insights-btn">Financial Health ✨</button>
+                <button class="menu-btn" id="exit-btn">End Session</button>
+            </div>
+            
+            <div id="ai-insights-screen" class="screen">
+                <h2>AI Financial Health Center ✨</h2>
+                <button id="analyze-spending-btn">Analyze My Recent Spending</button>
+                <p>--- OR ---</p>
+                <input type="text" id="savings-goal-name" placeholder="Savings Goal (e.g., New Phone)" autocomplete="off">
+                <input type="number" id="savings-goal-amount" placeholder="Goal Amount (e.g., 60000)" autocomplete="off">
+                <button id="create-savings-plan-btn">Create Savings Plan</button>
+                <div id="ai-result-display">Your AI insights will appear here...</div>
+                <button class="back-btn">Back to Menu</button>
+            </div>
+
+            <div id="withdraw-screen" class="screen">
+                <h2>Withdraw Cash</h2>
+                <p>Enter amount to withdraw.</p>
+                <input type="number" id="withdraw-amount" placeholder="e.g., 2000" min="100" step="100" autocomplete="off">
+                <button id="confirm-withdraw-btn">Confirm</button>
+                <button class="back-btn">Back to Menu</button>
+            </div>
+            
+            <div id="deposit-screen" class="screen">
+                <h2>Deposit Cash</h2>
+                <p>Enter amount to deposit.</p>
+                <input type="number" id="deposit-amount" placeholder="e.g., 5000" min="100" step="100" autocomplete="off">
+                <button id="confirm-deposit-btn">Confirm</button>
+                <button class="back-btn">Back to Menu</button>
+            </div>
+            
+            <div id="receipt-screen" class="screen">
+                <div class="receipt">
+                    <h3>Transaction Receipt</h3>
+                    <p><strong>Date:</strong> <span id="receipt-date"></span></p>
+                    <p><strong>Time:</strong> <span id="receipt-time"></span></p>
+                    <div class="details">
+                        <p><strong>Transaction:</strong> <span id="receipt-type"></span></p>
+                        <p><strong>Amount:</strong> <span id="receipt-amount"></span></p>
+                        <p><strong>Remaining Balance:</strong> <span id="receipt-balance"></span></p>
+                    </div>
+                </div>
+                <button id="receipt-ok-btn">OK</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
+
