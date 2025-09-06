@@ -1,3 +1,5 @@
+
+
 # 🤖 AI-Powered Secure ATM Simulation
 
 A full-stack web application simulating a secure ATM, featuring a novel dynamic grid-based authentication system to prevent shoulder surfing and an AI-powered financial advisor.
@@ -27,24 +29,71 @@ A full-stack web application simulating a secure ATM, featuring a novel dynamic 
 
 ## ⚙️ Setup and Installation
 
-Instructions for setting up the project locally:
+Follow these steps to get the project running on your local machine.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
-    ```
-2.  **Navigate to the server directory and install dependencies:**
-    ```bash
-    cd server
-    npm install
-    ```
-3.  **Create a `.env` file** in the `server` directory and add your secret keys:
-    ```
-    MONGO_URI=your_mongodb_connection_string
-    GEMINI_API_KEY=your_gemini_api_key
-    ```
-4.  **Start the server:**
-    ```bash
-    npm start
-    ```
-5.  Open `client/index.html` in your browser.
+### 1. Clone the Repository
+First, clone this project from GitHub to your computer.
+```bash
+git clone https://github.com/Rudrateja123/Secure-ATM-Simulation.git
+cd your-repository-name
+````
+
+### 2\. Set Up the Backend Server
+
+The server handles all the application logic and database communication.
+
+**a. Install Dependencies:**
+Navigate into the `server` directory and install the required npm packages.
+
+```bash
+cd server
+npm install
+```
+
+**b. Create Your Environment File (`.env`):**
+Create a new file named `.env` inside the `server` directory. This is where you will store your secret keys. Copy and paste the following content into it:
+
+```
+PORT=5000
+MONGODB_URI="your_mongodb_connection_string"
+GEMINI_API_KEY="your_gemini_api_key"
+```
+
+**c. Get Your MongoDB Connection URI:**
+We will use MongoDB Atlas, which offers a free cloud database.
+
+1.  Go to **[MongoDB Atlas](https://www.mongodb.com/cloud/atlas)** and create a free account.
+2.  Create a new project and build a **Free Tier (M0) Cluster**.
+3.  **Create a Database User:** Under "Database Access," create a new user with a username and a strong password. Grant this user "Read and write to any database" privileges. **Save this password\!**
+4.  **Whitelist Your IP Address:** Under "Network Access," click "Add IP Address" and select **"Allow Access From Anywhere"** (`0.0.0.0/0`).
+5.  **Get the Connection String:** Go back to your database cluster, click **"Connect"**, select **"Drivers"**, and copy the connection string provided.
+6.  Paste this string into the `MONGODB_URI` field in your `.env` file. Be sure to replace `<password>` with the password you created in step 3 and add a database name (e.g., `secure-atm-db`) before the `?`.
+
+**d. Get Your Gemini API Key:**
+
+1.  Go to **[Google AI Studio](https://aistudio.google.com/app/apikey)**.
+2.  Click **"Create API key in new project"**.
+3.  Copy the generated API key.
+4.  Paste this key into the `GEMINI_API_KEY` field in your `.env` file.
+
+**e. Start the Server:**
+Once your `.env` file is complete, you can start the server.
+
+```bash
+npm start
+```
+
+The terminal should show `Server is running on http://localhost:5000` and `MongoDB connected successfully.` **Leave this terminal running.**
+
+### 3\. Run the Frontend Client
+
+1.  If you are using Visual Studio Code, install the **"Live Server"** extension.
+2.  Navigate to the `client` folder.
+3.  Right-click on the `index.html` file and select **"Open with Live Server"**.
+
+Your ATM application should now open in your browser and be fully functional\!
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
