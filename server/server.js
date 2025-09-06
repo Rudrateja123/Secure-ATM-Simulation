@@ -2,8 +2,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const axios = require('axios'); // Import axios
+const axios = require('axios');
 require('dotenv').config();
+const User = require('./userModel'); // Import the User model
 
 // Initialize Express app
 const app = express();
@@ -20,22 +21,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
 .then(() => console.log("MongoDB connected successfully."))
 .catch(err => console.error("MongoDB connection error:", err));
-
-// --- Mongoose Schema and Model ---
-const userSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
-    pattern: { type: [String], required: true },
-    duressPin: { type: String, required: true },
-    balance: { type: Number, default: 50000 },
-    transactionHistory: [{
-        type: { type: String, enum: ['debit', 'credit'] },
-        amount: Number,
-        desc: String,
-        date: { type: Date, default: Date.now }
-    }]
-});
-
-const User = mongoose.model('User', userSchema);
 
 // --- API Endpoints ---
 
@@ -116,8 +101,6 @@ app.post('/api/transaction', async (req, res) => {
     }
 });
 
-// --- NEW SECURE AI ENDPOINTS ---
-
 app.post('/api/financial-advice', async (req, res) => {
     const { prompt } = req.body;
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
@@ -159,8 +142,6 @@ app.post('/api/tts', async (req, res) => {
     }
 });
 
-
-// --- Start the Server ---
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -1,5 +1,5 @@
-# Ignore Node.js dependencies
-node_modules/
+# Ignore server dependencies
+/server/node_modules
 
-# Ignore environment variables file (VERY IMPORTANT)
-.env
+# Ignore environment variables file (contains secrets!)
+/server/.env

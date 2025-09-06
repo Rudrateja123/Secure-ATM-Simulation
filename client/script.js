@@ -485,6 +485,4 @@ document.addEventListener('DOMContentLoaded', () => {
     generateKeypad();
     showScreen('welcome-screen');
 });
-</script>
-</body>
-</html>
+
