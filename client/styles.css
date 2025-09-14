@@ -8,7 +8,7 @@ body {
     margin: 0;
     color: #e0e1dd;
     background-color: #0d1b2a; /* Fallback color */
-    background-image:  url('https://t3.ftcdn.net/jpg/02/69/74/04/240_F_269740489_H9JCPmidJQh3erTmXPnlg5capVGXTdFb.jpg');
+    background-image:  url('/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
