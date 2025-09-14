@@ -21,36 +21,43 @@ A full-stack web application simulating a secure ATM, featuring a novel dynamic 
 Here is a visual walkthrough of the user experience, from registration to performing transactions.
 
 **1. Welcome & Entry**
+
 The user is greeted with a clean interface where they can enter their name to either log in or begin the registration process.
 
 ![Welcome Screen](/Results/entry.png)
 
 **2. New Card Setup - Step 1: Pattern Selection**
+
 New users are guided to select their secret 4-position pattern on the dynamic grid. This pattern is the foundation of their security.
 
 ![Pattern Setup](/Results/setup.png)
 
 **3. New Card Setup - Step 2: Duress PIN**
+
 As an advanced security measure, the user sets a separate 4-digit Duress PIN.
 
 ![Duress PIN Setup](/Results/duressPIN.png)
 
 **4. Registration Success**
+
 Upon completion, the system displays the user's chosen pattern and Duress PIN for final verification.
 
 ![Setup Confirmation](/Results/setupSuccessful.png)
 
 **5. Secure Login**
+
 For each login attempt, the numbers on the grid are randomized. The user enters their one-time PIN based on the numbers now appearing in their secret positions, making it secure against observation.
 
 ![Login Screen](/Results/login.png)
 
 **6. Main Menu**
+
 After successful authentication, the user has access to all standard ATM functions.
 
 ![Main Menu](/Results/mainMenu.png)
 
 **7. Transactions & AI Features**
+
 Users can perform transactions like checking their balance or use the integrated AI to get personalized financial advice and savings plans.
 
 ![Balance Inquiry](/Results/balanceEnquiry.png)
